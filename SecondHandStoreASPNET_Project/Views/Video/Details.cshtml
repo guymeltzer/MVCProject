@@ -1,0 +1,104 @@
+﻿@model Models.Models.Video
+@using SecondHandStoreASPNET_Project.Helpers
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<div>
+    <h4>@Model.Title</h4>
+    <hr />
+    <h4 class="boldline">Publisher Details:</h4>
+    <dl class="Details">
+        <dt>@Html.DisplayNameFor(model => model.Owner.Username)</dt>
+        <dd>@Html.DisplayFor(model => model.Owner.Username)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Owner.BirthDate)</dt>
+        <dd>@Html.DisplayFor(model => model.Owner.BirthDate)</>
+        <dt>@Html.DisplayNameFor(model => model.Owner.Email)</dt>
+        <dd>@Html.DisplayFor(model => model.Owner.Email)</dd>
+    </dl>
+
+    <h4 class="boldline">Video Details:</h4>
+    <dl class="Details">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LongDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LongDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleaseYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReleaseYear)
+        </dd>
+
+
+    </dl>
+
+
+    <hr />
+    <dl class="Images">
+        <dd>
+            @if (Model.Image1 == null)
+            {
+                <img src="~/Images/noimage.jpg" height="150" width="150" />
+            }
+            else
+            {
+                @Html.ImageConvertHelper(Model.Image1, "150", "150");
+
+            }
+        </dd>
+
+
+        <dd>
+            @if (Model.Image2 == null)
+            {
+                <img src="~/Images/noimage.jpg" height="150" width="150" />
+            }
+            else
+            {
+                @Html.ImageConvertHelper(Model.Image2, "150", "150");
+
+            }
+        </dd>
+
+        <dd>
+            @if (Model.Image3 == null)
+            {
+                <img src="~/Images/noimage.jpg" height="150" width="150" />
+            }
+            else
+            {
+                @Html.ImageConvertHelper(Model.Image3, "150", "150");
+
+            }
+        </dd>
+    </dl>
+</div>
+
+   

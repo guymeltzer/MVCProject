@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Models.Models.Video>
+@using DAL.Repositories
+
+<h3>Shopping Cart</h3>
+
+<div class="CheckoutNoItems">
+    @{
+        if (Model.Count() == 0)
+        {
+            <h2>No Items Are In The Shopping Cart</h2>
+        }
+    }
+</div>
+
+<div class="CheckoutWithItems">
+    @{
+        if (Model.Count() > 0)
+        {
+            float total = 0;
+            foreach (var item in Model)
+            {
+                total += item.Price;
+            }
+
+            using (Html.BeginForm("CheckOut", "Cart", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <input type="submit" value="Check Out" class="btn btn-primary" />
+            }
+
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                total = (float)(total * 0.90);
+            }
+
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Price</th>
+                </tr>
+                @{
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Title</td>
+                            <td>@item.Price</td>
+
+                        </tr>
+                    }
+                    <tr>
+                        <td>Total :</td>
+                        <td>@total.ToString()</td>
+                    </tr>
+
+                    <tr>
+                        @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                        {
+                            <td>10% Discount For Registered Users!</td>
+                        }
+                    </tr>
+                }
+
+            </table>
+
+            <div class="VideosWithImagesAndDeleteButton">
+                <ul class="videoContainer">
+                    @foreach (var item in Model)
+                    {
+                        <li class="movieContainer">
+                            @Html.ActionLink("Remove From Cart", "DeleteCart", "Cart", new { id = item.VideoID }, new { @class = "btn-movie" })
+
+                            @Html.Partial("_CartView", item)
+                        </li>
+
+                    }
+
+                </ul>
+            </div>
+        }
+    }
+</div>
+
+

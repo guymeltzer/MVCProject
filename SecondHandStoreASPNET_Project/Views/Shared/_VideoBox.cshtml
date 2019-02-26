@@ -1,0 +1,39 @@
+﻿@model Models.Models.Video
+@using SecondHandStoreASPNET_Project.Helpers
+
+<div>
+    <div class="TitleContainer">
+        <h3 class="VideoBoxTitle">@Model.Title</h3>
+    </div>
+
+
+    <div class="ImageContainer">
+        <a href="/video/details/@Model.VideoID">@Html.ImageConvertHelper(Model.Image1, "auto", "100%")</a>
+    </div>
+
+    <div class="DescriptionContainer">
+        <p>@Model.ShortDescription</p>
+    </div>
+
+    <div class="PriceContainer">
+        <p>@Model.Price ₪</p>
+    </div>
+</div>
+
+
+
+@*<table class="partialProductBox">
+    <tr>
+        <td class="boldLine">@Model.Title</td>
+    </tr>
+    <tr>
+        <td> <a href="/video/details/@Model.VideoID">@Html.ImageConvertHelper(Model.Image1, "150", "150")</td>
+            @*<input type="submit" class="button" value="Delete" onclick="location.href='@Url.Action("Delete", "Video", new { id = Model.VideoID })'" />*@
+    @*</tr>
+    <tr>
+        <td>@Model.ShortDescription</td>
+    </tr>
+    <tr>
+        <td class="boldLine">$@Model.Price</td>
+    </tr>
+</table>*@

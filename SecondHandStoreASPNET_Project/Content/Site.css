@@ -1,0 +1,226 @@
+﻿body {
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/*.partialProductBox {
+    border:solid;
+    border-width:2px;
+    text-align:center;
+    cursor:pointer;
+}*/
+
+a {
+    color: white !important;
+}
+
+.navbar-fixed-top {
+    padding: 10px 0;
+    background: crimson;
+}
+
+.menu-nav {
+}
+
+.nav-ul {
+    display: flex;
+    width: 100%;
+    padding: 10px 15px;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .nav-ul {
+        max-width: 750px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .nav-ul {
+        max-width: 1170px;
+    }
+}
+
+.nav-li {
+}
+
+.CheckoutWithItems {
+    width: 100%;
+}
+
+.TitleContainer {
+    height: 80px;
+    padding: 0 10px;
+}
+
+.ImageContainer {
+    border: solid;
+    border-width: 2px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.titleAbout {
+    font-size: larger;
+    color: crimson;
+    text-align: center;
+    
+}
+
+.bg {
+    margin: 0;
+    background-size: cover;
+    width: 800px;
+    height: 648px;
+}
+
+
+.aboutDescription {
+    font-size: 2em;
+    text-emphasis-color: darkred;
+    -webkit-text-fill-color:darkred;
+    text-emphasis-style:filled;
+    text-align:center;
+    -web
+}
+
+.PriceContainer {
+    margin-top: auto;
+    margin-bottom: 10px;
+    text-align: center;
+    list-style-type: none;
+    border: 1px solid #eee;
+}
+
+    .PriceContainer p {
+        margin: 5px 0;
+    }
+
+.DescriptionContainer p {
+    margin: 5px;
+}
+
+.movieContainer {
+    border-radius: 3px;
+    border: 1px solid crimson;
+    box-shadow: 1px 1px 3px 1px rgba(128, 128, 128, 0.5);
+    min-width: 150px;
+    max-width: 250px;
+    height: 600px;
+    position: relative;
+    margin: 15px 0 15px 15px;
+    width: 25%;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul.videoContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.movieContainer .btn.btn-primary.btn-movie {
+    margin-bottom: 10px;
+}
+
+.movieContainer > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    height: 100%;
+}
+
+.DescriptionContainer {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.boldline {
+    font-weight: bold;
+}
+
+.selected {
+    font-weight: bolder;
+}
+
+.container.body-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+    /*.container.body-content > * {
+        border: 1px solid red;
+    }*/
+    .container.body-content > h2 {
+        flex: 1 0 100%;
+    }
+
+    .container.body-content > form {
+        flex-basis: 79%;
+    }
+
+    .container.body-content > #sidebar-wrapper {
+        flex-basis: 20%;
+    }
+
+    .container.body-content:after {
+        display: none;
+    }
+
+.Details dt {
+    font-weight: bold;
+    float: left;
+    width: 100px;
+}
+
+.userDetails dd {
+    margin-left: 180px;
+}
+
+.Images dl {
+    display: block;
+    list-style: image();
+    display: flex;
+}
+
+.Images dd {
+    margin-right: 30px;
+}
+
+.Block ul {
+    display: block;
+    list-style: none;
+    display: flex;
+}
+
+.Block li {
+    margin: 15px;
+}
+
+.AddVideoButton {
+    background-color: red;
+}
+
+.CheckoutProperties {
+    font-family: sans-serif;
+    display: table;
+    color: #0094ff;
+    width: 200px;
+    position: relative;
+    height: 200px;
+    flex-direction: column;
+}

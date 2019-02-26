@@ -1,0 +1,66 @@
+﻿@using SecondHandStoreASPNET_Project.Helpers
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="navbar  navbar-fixed-top">
+        <div class="container">
+            @Html.Partial("_navbarLogin")
+        </div>
+        <div class="menu-nav">
+            @{
+                SecondHandStoreASPNET_Project.Helpers.UserAuthenticationDetails sfsf = new UserAuthenticationDetails();
+                var user = sfsf.GetUserCredentials();
+            }
+            @if (!user.getIsConnect)
+            {
+                <div id="sidebar-wrapper">
+                    <ul class="nav-ul">
+                        
+                        <li class="nav-li">@Html.ActionLink("Shopping Cart", "GetCart", "Cart")</li>
+                        <li class="nav-li">@Html.MenuLink("Sign Up", "Register", "Users")</li>
+                        <li class="nav-li">@Html.MenuLink("Home", "Index", "Video")</li>
+                        <li class="nav-li">@Html.MenuLink("About", "About", "Home")</li>
+                    </ul>
+                </div>
+            }
+
+            else
+            {
+                <div id="sidebar-wrapper">
+                    <ul class="nav-ul">
+                        <li class="nav-li">@Html.ActionLink("Add A Video", "Create", "Video")</li>
+                        <li class="nav-li">@Html.ActionLink("Shopping Cart", "GetCart", "Cart")</li>
+                        <li class="nav-li">@Html.MenuLink("Home", "Index", "Video")</li>
+                        <li class="nav-li">@Html.MenuLink("About", "About", "Home")</li>
+                    </ul>
+                </div>
+            }
+        </div>
+    </div>
+
+    @*<div class="navbar-left">
+            <img src="~/Images/Blockbuster_logo.png" width="200" height="150" style="margin-top:15px; margin-left:15px"/>
+        </div>*@
+
+
+    <div class="container body-content">
+        @RenderBody()
+
+    </div>
+    
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+
+
+</html>
+<footer>
+   
+</footer>

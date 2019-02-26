@@ -1,0 +1,47 @@
+﻿@using SecondHandStoreASPNET_Project.Helpers
+@using Models.ViewModels
+
+
+@{
+    SecondHandStoreASPNET_Project.Helpers.UserAuthenticationDetails sfsf = new UserAuthenticationDetails();
+    var user = sfsf.GetUserCredentials();
+}
+
+
+@SignedUserWelcomeDate.LoginUserMessageTimeOfdayRetrieval() @HttpContext.Current.User.Identity.Name
+
+@ViewBag.user / @ViewBag.Title
+
+
+@if (!user.getIsConnect)
+{
+    using (Html.BeginForm("Login", "Users", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <input type="text" id="userName" name="userName" />
+        <input type="password" id="password" name="password" />
+
+        <button type="submit">Log In</button>
+        @Html.ActionLink("Sign Up", "Register", "Users")
+
+    }
+}
+
+else
+{
+    <span>@Html.ActionLink("Edit User Details", "Edit", "Users")</span>
+
+    <span></span>
+
+    using (Html.BeginForm("LogOut", "Users", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <input type="submit" value="Log Out" class="btn btn-primary" />
+    }
+
+
+}
+
+
+

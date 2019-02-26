@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Models.Models.Video>
+@using SecondHandStoreASPNET_Project.Helpers
+@using DAL
+
+@{
+    ViewBag.Title = "Index";
+
+
+}
+
+<body class="indexCSS">
+
+    <h2>Welcome To BlockBuster Video!</h2>
+
+
+
+    <div class="AddVideoButton">
+        @if (HttpContext.Current.User.Identity.IsAuthenticated)
+        {
+        }
+    </div>
+    <div class="OrderVideosButton">
+        @using (Html.BeginForm("Index", "Video", FormMethod.Get))
+        {
+            <span>
+                @Html.RadioButton("orderBy", "Date", isChecked: true) <text>Release Year</text>
+                @Html.RadioButton("orderBy", "Title") <text>Movie Title</text>
+                <span><input class="btn-order" type="submit" , value="Order" /></span>
+            </span>
+        }
+    </div>
+
+
+
+    <div class="VideosWithImagesAndAddToCartButton">
+        <ul class="videoContainer">
+            @foreach (var item in Model)
+            {
+                <li class="movieContainer">
+                    @Html.Partial("_VideoBox", item)
+
+                    @Html.ActionLink("Add To Cart", "AddToCart", "Cart", new { id = item.VideoID }, new { @class = "btn btn-primary btn-movie" })
+                </li>
+            }
+        </ul>
+    </div>
+
+</body>
+
+
+
+
